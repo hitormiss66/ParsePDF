@@ -22,13 +22,15 @@ def save_numbers_to_txt(numbers, txt_path):
     with open(txt_path, 'w') as f:
         for number in unique_numbers:
             f.write(f"{number}\n")
-            print(f"{number}")
 
 
 # Main execution
-pdf_path = 'C:\\to parse\\CLAIM M064.pdf'  # Replace with your PDF file path
-txt_path = 'C:\\to parse\\result\\result.txt'  # Output TXT file path
+if __name__ == "__main__":
+    pdf_path = input("Enter the path to the PDF file: ")
+    txt_path = input("Enter the path for the output TXT file: ")
 
-# Extract numbers and save to TXT
-extracted_numbers = extract_numbers_from_pdf(pdf_path)
-save_numbers_to_txt(extracted_numbers, txt_path)
+    # Extract numbers and save to TXT
+    extracted_numbers = extract_numbers_from_pdf(pdf_path)
+    save_numbers_to_txt(extracted_numbers, txt_path)
+
+    print(f"Extracted {len(extracted_numbers)} numbers and saved to {txt_path}.")
